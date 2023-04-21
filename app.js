@@ -5,6 +5,7 @@ const path = require("path");
 // extra security packages
 const helmet = require("helmet");
 const xss = require("xss-clean");
+const cors = require("cors");
 
 const express = require("express");
 const app = express();
@@ -26,6 +27,7 @@ app.set("trust proxy", 1);
 // security
 app.use(helmet());
 app.use(xss());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello from Jobster</h1>");
